@@ -1,3 +1,8 @@
 package com.example.portfolioapp.domain.model
 
-data class HardSkill()
+data class HardSkill(
+    val id: Int,
+    val name: String,
+    val score: Int
+)
+
