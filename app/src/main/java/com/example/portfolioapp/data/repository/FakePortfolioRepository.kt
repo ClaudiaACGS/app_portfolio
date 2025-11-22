@@ -1,5 +1,6 @@
 package com.example.portfolioapp.data.repository
 
+import com.example.portfolioapp.R
 import com.example.portfolioapp.domain.model.Education
 import com.example.portfolioapp.domain.model.Experience
 import com.example.portfolioapp.domain.model.HardSkill
@@ -22,7 +23,7 @@ class FakePortfolioRepository : PortfolioRepository {
             role = "Mobile Developer",
             about = "Passionate about Android and Compose.",
             nationality = "Brazilian",
-            address = "São Paulo",
+            address = "Rio de Janeiro",
             seniority = Seniority.JUNIOR
         )
     }
@@ -31,6 +32,14 @@ class FakePortfolioRepository : PortfolioRepository {
         return listOf(
             Education(
                 id = 1,
+                title = "MBA Mobile Eng.",
+                level = EducationLevel.MASTER,
+                startYear = 2024,
+                endYear = 2025,
+                institution = "University Example"
+            ),
+            Education(
+                id = 2,
                 title = "Systems Analysis and Development",
                 level = EducationLevel.BACHELOR,
                 startYear = 2020,
@@ -45,9 +54,27 @@ class FakePortfolioRepository : PortfolioRepository {
             Experience(
                 id = 1,
                 title = "Android Developer",
-                type = ExperienceType.FREELANCE,
-                startYear = 2023,
+                type = ExperienceType.FULL_TIME,
+                startYear = 2025,
                 endYear = 2024,
+                company = "Self-employed",
+                responsibilities = "Building Android apps with Compose."
+            ),
+            Experience(
+                id = 2,
+                title = "Android Developer",
+                type = ExperienceType.FREELANCE,
+                startYear = 2021,
+                endYear = 2023,
+                company = "Self-employed",
+                responsibilities = "Building Android apps with Compose."
+            ),
+            Experience(
+                id = 3,
+                title = "Mobile Developer",
+                type = ExperienceType.PART_TIME,
+                startYear = 2018,
+                endYear = 2020,
                 company = "Self-employed",
                 responsibilities = "Building Android apps with Compose."
             )
@@ -63,8 +90,10 @@ class FakePortfolioRepository : PortfolioRepository {
 
     override suspend fun getHardSkills(): List<HardSkill> {
         return listOf(
-            HardSkill(id = 1, name = "Kotlin", score = 90),
-            HardSkill(id = 2, name = "Compose", score = 85)
+            HardSkill(id = 1, name = "Kotlin", score = 90, icon = R.drawable.ic_kotlin),
+            HardSkill(id = 2, name = "Android", score = 95, icon = R.drawable.ic_android,),
+            HardSkill(id = 3, name = "TypeScript", score = 95, icon = R.drawable.ic_typescript,),
+            HardSkill(id = 4, name = "React Native", score = 95, icon = R.drawable.ic_react_native,),
         )
     }
 
@@ -72,12 +101,33 @@ class FakePortfolioRepository : PortfolioRepository {
         return listOf(
             PersonalProject(
                 id = 1,
-                title = "English Learning App",
+                title = "Finance App",
                 startYear = 2024,
                 endYear = 2025,
-                domain = Domain.EDUCATION,
+                domain = Domain.BUSINESS,
                 techStack = "Kotlin, Compose, Firebase",
-                about = "Phonetics-based English study app."
+                about = "Mobile Development about Kotlin and Compose",
+                image = R.drawable.img_app_financas
+            ),
+            PersonalProject(
+                id = 2,
+                title = "Market Space App",
+                startYear = 2023,
+                endYear = 2022,
+                domain = Domain.BUSINESS,
+                techStack = "Kotlin, Compose, Firebase",
+                about = "Mobile Development about Kotlin and Compose",
+                image = R.drawable.img_marketspace
+            ),
+            PersonalProject(
+                id = 3,
+                title = "Daily Diet App",
+                startYear = 2021,
+                endYear = 2020,
+                domain = Domain.HEALTH,
+                techStack = "Kotlin, Compose, Firebase",
+                about = "Mobile Development about Kotlin and Compose",
+                image = R.drawable.img_app_financas
             )
         )
     }

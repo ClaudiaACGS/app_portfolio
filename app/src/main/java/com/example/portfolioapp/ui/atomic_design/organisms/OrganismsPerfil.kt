@@ -22,6 +22,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.portfolioapp.R
+import com.example.portfolioapp.domain.model.Profile
+import com.example.portfolioapp.domain.model.enums.Seniority
 import com.example.portfolioapp.ui.atomic_design.atoms.AtomImage
 import com.example.portfolioapp.ui.atomic_design.atoms.AtomText
 import com.example.portfolioapp.ui.atomic_design.molecules.MoleculeDownload
@@ -33,10 +35,11 @@ import com.example.portfolioapp.ui.theme.PortfolioFontSize
 import com.example.portfolioapp.ui.theme.White
 
 @Composable
-fun MoleculePerfil(name: String, job: String, years:Int, qtdProjects:Int) {
+fun OrganismsPerfil(profile:Profile, years:Int, qtdProjects:Int) {
     Card(
-        shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp),
+        shape = RoundedCornerShape(16.dp),
         modifier = Modifier
+            .padding(15.dp)
             .fillMaxWidth()
             .height(330.dp)
             .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
@@ -63,14 +66,14 @@ fun MoleculePerfil(name: String, job: String, years:Int, qtdProjects:Int) {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     AtomText(
-                        text = name,
+                        text = profile.name,
                         fontSize = PortfolioFontSize.fontSize_20sp,
                         color = White,
                         textAlign = TextAlign.Center,
                         fontWeight = FontWeight.Bold,
                     )
 
-                    MoleculeJob(job)
+                    MoleculeJob("${profile.role} ${profile.seniority.name}")
 
                     Row(
                         modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -97,11 +100,18 @@ fun MoleculePerfil(name: String, job: String, years:Int, qtdProjects:Int) {
 
 @Composable
 @Preview
-private fun MoleculePerfilPreview(){
+private fun OrganismsPerfilPreview(){
     PortfolioAppTheme {
-        MoleculePerfil(
-            name = "Ana Gomes",
-            job = "Mobile Developer",
+        OrganismsPerfil(
+            profile = Profile(
+                id = 1,
+                name = "Ana Gomes",
+                role = "Mobile Developer",
+                about = "Mobile Developer",
+                nationality = "Brasileira",
+                address = "Rio de Janeiro",
+                seniority = Seniority.JUNIOR
+            ),
             years = 6,
             qtdProjects = 42
         )

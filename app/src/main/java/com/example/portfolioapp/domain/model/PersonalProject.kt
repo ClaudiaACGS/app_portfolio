@@ -9,6 +9,7 @@ data class PersonalProject(
     val endYear: Int,
     val domain: Domain,
     val techStack: String,
-    val about: String
+    val about: String,
+    val image: Int
 )
 

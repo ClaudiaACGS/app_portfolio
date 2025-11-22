@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Portfolio App</string>
+    <string name="add_info">Digite seu dado aqui</string>
+    <string name="core_title">CORE TECHNOLOGIE</string>
+    <string name="job_title">Experiência Profissional</string>
+    <string name="voluntter_title">Voluntariado</string>
+    <string name="education_title">Educação</string>
+    <string name="talk_title">Vamos Conversar?</string>
+    <string name="labs_projects_title">Labs Projects</string>
 </resources>

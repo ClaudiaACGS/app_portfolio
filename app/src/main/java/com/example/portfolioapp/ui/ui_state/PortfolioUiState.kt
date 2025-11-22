@@ -17,7 +17,12 @@ sealed class PortfolioUiState {
         val experience: List<Experience>,
         val softSkills: List<SoftSkill>,
         val hardSkills: List<HardSkill>,
-        val personalProjects: List<PersonalProject>
+        val personalProjects: List<PersonalProject>,
+        val mostRecentEducation: Education?,
+        val mostRecentExperience : Experience?,
+        val mostRecentProject : PersonalProject?,
+        val projectCount : Int,
+        val totalExperienceYears : Int
     ) : PortfolioUiState()
 
     data class Error(val message: String) : PortfolioUiState()
