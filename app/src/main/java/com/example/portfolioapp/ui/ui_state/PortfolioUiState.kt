@@ -8,7 +8,6 @@ import com.example.portfolioapp.domain.model.Profile
 import com.example.portfolioapp.domain.model.SoftSkill
 
 sealed class PortfolioUiState {
-
     data object Loading : PortfolioUiState()
 
     data class Success(
@@ -22,7 +21,9 @@ sealed class PortfolioUiState {
         val mostRecentExperience : Experience?,
         val mostRecentProject : PersonalProject?,
         val projectCount : Int,
-        val totalExperienceYears : Int
+        val totalExperienceYears : Int,
+        val latestProjectsUseCase: List<PersonalProject>,
+        val excessProjectsCountUseCase: Int
     ) : PortfolioUiState()
 
     data class Error(val message: String) : PortfolioUiState()

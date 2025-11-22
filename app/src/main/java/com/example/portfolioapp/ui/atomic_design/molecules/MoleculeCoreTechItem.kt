@@ -42,8 +42,8 @@ fun MoleculeCoreTechItem(hardSkill: HardSkill){
                 color = Gray500
             ),
             modifier = Modifier
-                .height(50.dp)
-                .width(50.dp)
+                .height(70.dp)
+                .width(70.dp)
                 .padding(6.dp)
                 .align(Alignment.CenterHorizontally)
         ) {
@@ -51,15 +51,15 @@ fun MoleculeCoreTechItem(hardSkill: HardSkill){
                 painter = painterResource(hardSkill.icon),
                 modifier = Modifier
                     .padding(top = 5.dp)
-                    .width(30.dp)
-                    .height(30.dp)
+                    .width(50.dp)
+                    .height(50.dp)
                     .align(Alignment.CenterHorizontally)
             )
         }
 
         AtomText(
             text = hardSkill.name,
-            fontSize = PortfolioFontSize.fontSize_11sp,
+            fontSize = PortfolioFontSize.fontSize_14sp,
             color = Gray300
         )
     }

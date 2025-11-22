@@ -4,8 +4,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.portfolioapp.data.repository.FakePortfolioRepository
 import com.example.portfolioapp.domain.usecase.GetEducationListUseCase
+import com.example.portfolioapp.domain.usecase.GetExcessProjectsCountUseCase
 import com.example.portfolioapp.domain.usecase.GetExperienceListUseCase
 import com.example.portfolioapp.domain.usecase.GetHardSkillsUseCase
+import com.example.portfolioapp.domain.usecase.GetLatestProjectsUseCase
 import com.example.portfolioapp.domain.usecase.GetMostRecentEducationUseCase
 import com.example.portfolioapp.domain.usecase.GetMostRecentExperienceUseCase
 import com.example.portfolioapp.domain.usecase.GetMostRecentProjectUseCase
@@ -46,6 +48,12 @@ class PortfolioViewModel(
     private val getTotalExperienceYears: GetTotalExperienceYearsUseCase = GetTotalExperienceYearsUseCase(
         FakePortfolioRepository()
     ),
+    private val getLatestProjectsUseCase: GetLatestProjectsUseCase = GetLatestProjectsUseCase(
+        FakePortfolioRepository()
+    ),
+    private val getExcessProjectsCountUseCase: GetExcessProjectsCountUseCase = GetExcessProjectsCountUseCase(
+        FakePortfolioRepository()
+    )
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow<PortfolioUiState>(PortfolioUiState.Loading)
@@ -69,6 +77,8 @@ class PortfolioViewModel(
                 val recentProject = getMostRecentProject()
                 val totalExpYears = getTotalExperienceYears()
                 val projectCount = getProjectCount()
+                val latestProjectsUseCase = getLatestProjectsUseCase()
+                val excessProjectsCountUseCase = getExcessProjectsCountUseCase()
 
                 _uiState.value = PortfolioUiState.Success(
                     profile = profile,
@@ -81,7 +91,9 @@ class PortfolioViewModel(
                     mostRecentExperience = recentExperience,
                     mostRecentProject = recentProject,
                     projectCount = projectCount,
-                    totalExperienceYears = totalExpYears
+                    totalExperienceYears = totalExpYears,
+                    latestProjectsUseCase = latestProjectsUseCase,
+                    excessProjectsCountUseCase = excessProjectsCountUseCase
                 )
 
             } catch (e: Exception) {

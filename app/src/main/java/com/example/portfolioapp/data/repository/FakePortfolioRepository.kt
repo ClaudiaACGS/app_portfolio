@@ -91,9 +91,14 @@ class FakePortfolioRepository : PortfolioRepository {
     override suspend fun getHardSkills(): List<HardSkill> {
         return listOf(
             HardSkill(id = 1, name = "Kotlin", score = 90, icon = R.drawable.ic_kotlin),
-            HardSkill(id = 2, name = "Android", score = 95, icon = R.drawable.ic_android,),
-            HardSkill(id = 3, name = "TypeScript", score = 95, icon = R.drawable.ic_typescript,),
-            HardSkill(id = 4, name = "React Native", score = 95, icon = R.drawable.ic_react_native,),
+            HardSkill(id = 2, name = "Android", score = 95, icon = R.drawable.ic_android),
+            HardSkill(id = 3, name = "TypeScript", score = 95, icon = R.drawable.ic_typescript),
+            HardSkill(
+                id = 4,
+                name = "React Native",
+                score = 95,
+                icon = R.drawable.ic_react_native,
+            ),
         )
     }
 
@@ -127,7 +132,68 @@ class FakePortfolioRepository : PortfolioRepository {
                 domain = Domain.HEALTH,
                 techStack = "Kotlin, Compose, Firebase",
                 about = "Mobile Development about Kotlin and Compose",
-                image = R.drawable.img_app_financas
+                image = R.drawable.img_daily_diet
+            ),
+            PersonalProject(
+                id = 4,
+                title = "ToDo App",
+                startYear = 2025,
+                endYear = 2026,
+                domain = Domain.PERSONAL,
+                techStack = "Kotlin, Compose, Firebase",
+                about = "Mobile Development about Kotlin and Compose",
+                image = R.drawable.img_todo_
+            ),
+            PersonalProject(
+                id = 5,
+                title = "Nutri App",
+                startYear = 2025,
+                endYear = 2026,
+                domain = Domain.HEALTH,
+                techStack = "Kotlin, Compose, Firebase",
+                about = "Mobile Development about Kotlin and Compose",
+                image = R.drawable.img_tabela_nutricional
+            ),
+
+            PersonalProject(
+                id = 6,
+                title = "Service App",
+                startYear = 2025,
+                endYear = 2026,
+                domain = Domain.BUSINESS,
+                techStack = "Kotlin, Compose, Firebase",
+                about = "Mobile Development about Kotlin and Compose",
+                image = R.drawable.img_orcamentos_servicos
+            ),
+            PersonalProject(
+                id = 7,
+                title = "Ignite Gym App",
+                startYear = 2025,
+                endYear = 2026,
+                domain = Domain.HEALTH,
+                techStack = "Kotlin, Compose, Firebase",
+                about = "Mobile Development about Kotlin and Compose",
+                image = R.drawable.img_ignite_gym
+            ),
+            PersonalProject(
+                id = 8,
+                title = "Movie App",
+                startYear = 2025,
+                endYear = 2026,
+                domain = Domain.ENTERTAINMENT,
+                techStack = "Kotlin, Compose, Firebase",
+                about = "Mobile Development about Kotlin and Compose",
+                image = R.drawable.img_explorador_filmes
+            ),
+            PersonalProject(
+                id = 9,
+                title = "Coffe Delivery App",
+                startYear = 2025,
+                endYear = 2026,
+                domain = Domain.BUSINESS,
+                techStack = "Kotlin, Compose, Firebase",
+                about = "Mobile Development about Kotlin and Compose",
+                image = R.drawable.img_coffe_delivery
             )
         )
     }

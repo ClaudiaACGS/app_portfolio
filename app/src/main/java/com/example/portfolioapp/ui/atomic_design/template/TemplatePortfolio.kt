@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -19,6 +21,7 @@ import com.example.portfolioapp.R
 import com.example.portfolioapp.ui.atomic_design.organisms.OrganismsCoreThec
 import com.example.portfolioapp.ui.atomic_design.organisms.OrganismsInfo
 import com.example.portfolioapp.ui.atomic_design.organisms.OrganismsPerfil
+import com.example.portfolioapp.ui.atomic_design.organisms.OrganismsProjects
 import com.example.portfolioapp.ui.theme.PortfolioAppTheme
 import com.example.portfolioapp.ui.ui_state.PortfolioUiState
 import com.example.portfolioapp.ui.viewModel.PortfolioViewModel
@@ -41,6 +44,7 @@ fun TemplatePortfolio(viewModel: PortfolioViewModel){
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(innerPadding)
+                        .verticalScroll(rememberScrollState())
                 ) {
                     OrganismsPerfil(
                         profile = data.profile,
@@ -59,6 +63,13 @@ fun TemplatePortfolio(viewModel: PortfolioViewModel){
                             subTitleInfo = data.mostRecentExperience?.title.toString(),
                             iconSub = painterResource(R.drawable.ic_storm),
                             descrition = data.mostRecentExperience?.responsibilities.toString()
+                        )
+                        Spacer(Modifier.height(15.dp))
+                        OrganismsProjects(
+                            projects = data.latestProjectsUseCase,
+                            titleInfo = "Labs & Projects",
+                            iconInfo = painterResource(R.drawable.ic_phone),
+                            excessProjects = data.excessProjectsCountUseCase
                         )
                         Spacer(Modifier.height(15.dp))
                         OrganismsInfo(
